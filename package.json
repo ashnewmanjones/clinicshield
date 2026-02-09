@@ -2,7 +2,7 @@
   "name": "clinicshield",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@^10.0.0",
+  "packageManager": "pnpm@10.29.2",
   "scripts": {
     "dev": "concurrently \"next dev\" \"pnpx convex dev \"",
     "build": "next build",

@@ -6,6 +6,8 @@ export const env = createEnv({
     CONVEX_DEPLOYMENT: z.string().min(1),
     WORKOS_CLIENT_ID: z.string().min(1),
     WORKOS_API_KEY: z.string().min(1),
+    RESEND_KEY: z.string().min(1),
+    STRIPE_SECRET_KEY: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_CONVEX_URL: z.url(),
@@ -13,6 +15,7 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1),
     NEXT_PUBLIC_POSTHOG_HOST: z.string().min(1),
     NEXT_PUBLIC_WORKOS_REDIRECT_URI: z.url(),
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(1),
   },
   experimental__runtimeEnv: {
     NEXT_PUBLIC_CONVEX_URL: process.env.NEXT_PUBLIC_CONVEX_URL,
@@ -20,5 +23,6 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
     NEXT_PUBLIC_WORKOS_REDIRECT_URI: process.env.NEXT_PUBLIC_WORKOS_REDIRECT_URI,
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
   }
 });

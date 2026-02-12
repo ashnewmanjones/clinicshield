@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.29.2",
   "scripts": {
     "dev": "concurrently \"next dev\" \"pnpx convex dev \"",
-    "build": "next build",
+    "build": "npx convex deploy --cmd 'next build'",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write"

@@ -214,7 +214,7 @@ export default function OnboardingPage() {
                   <Label>Approximate staff count</Label>
                   <Select
                     value={staffCount}
-                    onValueChange={setStaffCount}
+                    onValueChange={(value) => setStaffCount(value ?? "")}
                   >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select a range" />

@@ -90,8 +90,8 @@ export default defineSchema({
 
   /** Users linked to organisations */
   users: defineTable({
-    /** WorkOS user ID (from auth token subject) */
-    workosId: v.string(),
+    /** Clerk user ID (from auth token subject) */
+    clerkId: v.string(),
     email: v.string(),
     name: v.optional(v.string()),
     organisationId: v.optional(v.id("organisations")),
@@ -103,7 +103,7 @@ export default defineSchema({
       v.literal("viewer"),
     ),
   })
-    .index("by_workos_id", ["workosId"])
+    .index("by_clerk_id", ["clerkId"])
     .index("by_organisation", ["organisationId"]),
 
   // =========================================================================

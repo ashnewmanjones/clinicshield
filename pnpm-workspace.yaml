@@ -3,6 +3,7 @@ ignoredBuiltDependencies:
   - unrs-resolver
 
 onlyBuiltDependencies:
+  - '@clerk/shared'
   - core-js
   - esbuild
   - msw

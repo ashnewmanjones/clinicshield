@@ -119,7 +119,7 @@ It does NOT submit to the DSPT portal — that's NHS England's system. ClinicShi
 ### Week 2 (17-23 Feb): Core Data Model + Auth
 
 - [x] Convex schema: organisations, users, assessments, questions, answers, evidenceFiles, standards, assertions
-- [x] Auth: WorkOS AuthKit (email/password + magic link + SSO-ready)
+- [x] Auth: Clerk (email/password + magic link + SSO-ready)
 - [ ] Onboarding wizard (org type selection, practice details)
 - [x] Seed script: load all 10 standards, assertions, questions into Convex
 - [ ] Basic layout/navigation shell (Tailwind + shadcn/ui)
@@ -192,7 +192,7 @@ Fully serverless, real-time by default, zero infrastructure management. Convex h
 |-------|--------|-----|
 | **Framework** | Next.js 14+ (App Router) | Already used for ashnewmanjones.com. TypeScript everywhere, Vercel deploys |
 | **Backend/Database** | Convex | Real-time reactive database, server functions, file storage, scheduled jobs — all in one. No SQL, no migrations, no ORM |
-| **Auth** | WorkOS AuthKit | SSO-ready from day one (valuable for NHS orgs/MSPs), clean DX, free up to 1M MAUs |
+| **Auth** | Clerk | SSO-ready from day one (valuable for NHS orgs/MSPs), clean DX, free up to 1M MAUs |
 | **Hosting** | Vercel | Free tier generous. Push to GitHub → live. Edge functions, serverless |
 | **File Storage** | Convex File Storage | Built-in, no separate S3/R2 needed. Evidence uploads handled natively |
 | **Email** | Resend | Free tier, excellent Next.js DX, triggered from Convex actions |

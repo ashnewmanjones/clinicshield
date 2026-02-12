@@ -1,60 +1,20 @@
 "use client";
 
-import {
-  AuthKitProvider,
-  useAccessToken,
-  useAuth,
-} from "@workos-inc/authkit-nextjs/components";
-import { ConvexProviderWithAuth, ConvexReactClient } from "convex/react";
-import { type ReactNode, useCallback, useState } from "react";
-import { env } from "@/env";
+import { useAuth } from "@clerk/nextjs";
+import { ConvexReactClient } from "convex/react";
+import { ConvexProviderWithClerk } from "convex/react-clerk";
+import type { ReactNode } from "react";
 
-export function ConvexClientProvider({ children }: { children: ReactNode }) {
-  const [convex] = useState(() => {
-    return new ConvexReactClient(env.NEXT_PUBLIC_CONVEX_URL);
-  });
-  return (
-    <AuthKitProvider>
-      <ConvexProviderWithAuth client={convex} useAuth={useAuthFromAuthKit}>
-        {children}
-      </ConvexProviderWithAuth>
-    </AuthKitProvider>
-  );
+if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
+  throw new Error("Missing NEXT_PUBLIC_CONVEX_URL in your .env file");
 }
 
-function useAuthFromAuthKit() {
-  const { user, loading: isLoading } = useAuth();
-  const { getAccessToken, refresh } = useAccessToken();
+const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL);
 
-  const isAuthenticated = !!user;
-
-  const fetchAccessToken = useCallback(
-    async ({
-      forceRefreshToken,
-    }: {
-      forceRefreshToken?: boolean;
-    } = {}): Promise<string | null> => {
-      if (!user) {
-        return null;
-      }
-
-      try {
-        if (forceRefreshToken) {
-          return (await refresh()) ?? null;
-        }
-
-        return (await getAccessToken()) ?? null;
-      } catch (error) {
-        console.error("Failed to get access token:", error);
-        return null;
-      }
-    },
-    [user, refresh, getAccessToken],
+export function ConvexClientProvider({ children }: { children: ReactNode }) {
+  return (
+    <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
+      {children}
+    </ConvexProviderWithClerk>
   );
-
-  return {
-    isLoading,
-    isAuthenticated,
-    fetchAccessToken,
-  };
 }

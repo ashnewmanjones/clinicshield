@@ -1,6 +1,5 @@
 "use client";
 
-import { useAuth } from "@workos-inc/authkit-nextjs/components";
 import { useQuery } from "convex/react";
 import { Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,7 +13,6 @@ import {
 import { api } from "../../../convex/_generated/api";
 
 export default function DashboardPage() {
-  const { user, signOut } = useAuth();
   const org = useQuery(api.organisations.getCurrent);
 
   return (
@@ -31,8 +29,12 @@ export default function DashboardPage() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="outline" size="sm" onClick={() => signOut()}>
+            <span className="text-sm text-muted-foreground">Email Address</span>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => alert("Sign out")}
+            >
               Sign out
             </Button>
           </div>

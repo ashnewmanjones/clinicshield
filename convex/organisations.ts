@@ -31,14 +31,14 @@ export const create = mutation({
     // Upsert user record
     const existing = await ctx.db
       .query("users")
-      .withIndex("by_workos_id", (q) => q.eq("workosId", identity.subject))
+      .withIndex("by_clerk_id", (q) => q.eq("clerkId", identity.subject))
       .first();
 
     if (existing) {
       await ctx.db.patch(existing._id, { organisationId: orgId });
     } else {
       await ctx.db.insert("users", {
-        workosId: identity.subject,
+        clerkId: identity.subject,
         email: identity.email ?? "",
         name: identity.name,
         organisationId: orgId,
@@ -68,7 +68,7 @@ export const getCurrent = query({
 
     const user = await ctx.db
       .query("users")
-      .withIndex("by_workos_id", (q) => q.eq("workosId", identity.subject))
+      .withIndex("by_clerk_id", (q) => q.eq("clerkId", identity.subject))
       .first();
 
     if (!user?.organisationId) return null;

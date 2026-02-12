@@ -54,7 +54,7 @@ When adding tests, prefer `*.test.ts(x)` naming and colocate near the source fil
 
 ## Commit & Pull Request Guidelines
 
-Current history uses short, imperative commit subjects (for example, `Link convex with workos`).
+Current history uses short, imperative commit subjects (for example, `Link convex with clerk`).
 
 - Keep commit titles concise, imperative, and scoped to one change.
 - PRs should include: purpose, key changes, local validation steps, and screenshots/GIFs for UI updates.

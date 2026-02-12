@@ -1,8 +1,9 @@
 "use client";
 
-import { useQuery } from "convex/react";
 import { useAuth } from "@workos-inc/authkit-nextjs/components";
-import { api } from "../../../convex/_generated/api";
+import { useQuery } from "convex/react";
+import { Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,8 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Shield } from "lucide-react";
+import { api } from "../../../convex/_generated/api";
 
 export default function DashboardPage() {
   const { user, signOut } = useAuth();

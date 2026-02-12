@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (
+    /* biome-ignore lint/a11y/noLabelWithoutControl: This reusable primitive is associated by consumers via htmlFor or nested controls. */
     <label
       data-slot="label"
       htmlFor={props.htmlFor}

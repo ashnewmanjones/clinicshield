@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { useMutation } from "convex/react";
+import { ArrowLeft, ArrowRight, Building2, Check } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { api } from "../../../convex/_generated/api";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -12,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -22,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowLeft, ArrowRight, Building2, Check } from "lucide-react";
+import { api } from "../../../convex/_generated/api";
 
 const ORG_TYPES = [
   {
@@ -59,6 +59,12 @@ const STAFF_RANGES = [
   { value: "150", label: "100+ staff" },
 ] as const;
 
+const ONBOARDING_STEPS = [
+  "organisation-type",
+  "practice-details",
+  "confirmation",
+] as const;
+
 type OrgType = (typeof ORG_TYPES)[number]["value"];
 
 export default function OnboardingPage() {
@@ -71,8 +77,6 @@ export default function OnboardingPage() {
   const [odsCode, setOdsCode] = useState("");
   const [staffCount, setStaffCount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const totalSteps = 3;
 
   const canProceed = () => {
     switch (step) {
@@ -109,9 +113,9 @@ export default function OnboardingPage() {
       <div className="w-full max-w-lg">
         {/* Progress indicator */}
         <div className="mb-8 flex items-center justify-center gap-2">
-          {Array.from({ length: totalSteps }).map((_, i) => (
+          {ONBOARDING_STEPS.map((stepId, i) => (
             <div
-              key={i}
+              key={stepId}
               className={`h-2 rounded-full transition-all ${
                 i === step
                   ? "w-8 bg-primary"
@@ -183,7 +187,8 @@ export default function OnboardingPage() {
             <CardHeader>
               <CardTitle className="text-xl">Practice details</CardTitle>
               <CardDescription>
-                Tell us a bit about your organisation. You can update these later.
+                Tell us a bit about your organisation. You can update these
+                later.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -279,7 +284,10 @@ export default function OnboardingPage() {
                     <div className="flex justify-between">
                       <dt className="text-muted-foreground">Staff</dt>
                       <dd className="font-medium">
-                        {STAFF_RANGES.find((r) => r.value === staffCount)?.label}
+                        {
+                          STAFF_RANGES.find((r) => r.value === staffCount)
+                            ?.label
+                        }
                       </dd>
                     </div>
                   )}
@@ -300,11 +308,7 @@ export default function OnboardingPage() {
                 <ArrowLeft data-icon="inline-start" className="size-4" />
                 Back
               </Button>
-              <Button
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                size="lg"
-              >
+              <Button onClick={handleSubmit} disabled={isSubmitting} size="lg">
                 {isSubmitting ? "Setting up…" : "Start assessment"}
                 {!isSubmitting && (
                   <Check data-icon="inline-end" className="size-4" />

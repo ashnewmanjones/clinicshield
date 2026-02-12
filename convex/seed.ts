@@ -1,8 +1,5 @@
+import { dsptV8Standards, NEW_IN_V8_REFS } from "../data/dspt-v8-gp";
 import { internalMutation } from "./_generated/server";
-import {
-  dsptV8Standards,
-  NEW_IN_V8_REFS,
-} from "../data/dspt-v8-gp";
 
 /**
  * Seed the database with DSPT v8 GP (Category 4) reference data.

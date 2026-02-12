@@ -107,19 +107,19 @@ It does NOT submit to the DSPT portal — that's NHS England's system. ClinicShi
 
 ### Week 1 (10-16 Feb): Foundation + Research
 
-- [ ] Download DSPT v8 GP practice spreadsheet from NHS Digital
-- [ ] Map every assertion and mandatory evidence item for GP org type
-- [ ] Create question bank: translate each evidence item into plain-English questions
+- [x] Download DSPT v8 GP practice spreadsheet from NHS Digital
+- [x] Map every assertion and mandatory evidence item for GP org type
+- [x] Create question bank: translate each evidence item into plain-English questions
 - [x] Set up Next.js 14+ project with App Router + TypeScript
 - [x] Set up Convex: schema design, connect to Next.js
 - [x] Domain: clinicshield.co.uk (£5-10/year)
 - [x] Deploy to Vercel (connected to GitHub repo)
-- [ ] Set up Stripe in test mode
+- [x] Set up Stripe in test mode
 
 ### Week 2 (17-23 Feb): Core Data Model + Auth
 
-- [ ] Convex schema: organisations, users, assessments, questions, answers, evidenceFiles, standards, assertions
-- [ ] Auth: WorkOS AuthKit (email/password + magic link + SSO-ready)
+- [x] Convex schema: organisations, users, assessments, questions, answers, evidenceFiles, standards, assertions
+- [x] Auth: WorkOS AuthKit (email/password + magic link + SSO-ready)
 - [ ] Onboarding wizard (org type selection, practice details)
 - [ ] Seed script: load all 10 standards, assertions, questions into Convex
 - [ ] Basic layout/navigation shell (Tailwind + shadcn/ui)

@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as organisations from "../organisations.js";
 import type * as seed from "../seed.js";
 
 import type {
@@ -17,6 +18,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  organisations: typeof organisations;
   seed: typeof seed;
 }>;
 

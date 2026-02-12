@@ -93,8 +93,7 @@ export const dsptV8Standards: Standard[] = [
               "Registration with the ICO is a legal requirement for every organisation that uses or shares personal information, unless they are exempt as a small charity. If your organisation is not already registered, you should register as a matter of urgency (https://ico.org.uk/for-organisations/data-protection-fee/). You can check whether you are registered and what your ICO registration number is on the Information Commissioner's Office website (https://ico.org.uk/esdwebpages/search).",
             mandatory: true,
             approachingMandatory: true,
-            plainEnglishQuestion:
-              "What is your ICO registration number?",
+            plainEnglishQuestion: "What is your ICO registration number?",
             clinicHelp:
               "Every GP practice that handles patient data must be registered with the ICO. You can find your registration number on the ICO website. If you're not registered, you need to do this urgently as it's a legal requirement.",
             exemptions: [],
@@ -119,8 +118,7 @@ export const dsptV8Standards: Standard[] = [
           {
             ref: "1.1.3",
             inputType: "document",
-            evidenceText:
-              "Does your organisation have a privacy notice?",
+            evidenceText: "Does your organisation have a privacy notice?",
             tooltip:
               "If you use and share personal data then you must tell people what you are doing with it. This includes why you need the data, what you'll do with it, who you're going to share it with and individual's rights under data protection legislation for example, the right to access their information. This should be set out in writing in 'a privacy notice'. You should provide this information in a clear, open and honest way using language which is easy to read and understand, and in a range of formats for different audiences. Your privacy notice should cover all data you process for example the data relating to the people you support and their relatives, staff, volunteers, members of the public. You may have more than one privacy notice, for example one for staff and another one for the people you support. An example privacy notice is available from British Medical Association (https://www.bma.org.uk/advice-and-support/ethics/confidentiality-and-health-records/gdpr-privacy-notices-for-gp-practices).",
             mandatory: true,
@@ -130,8 +128,7 @@ export const dsptV8Standards: Standard[] = [
             clinicHelp:
               "Your privacy notice explains to patients and staff what personal data you collect, why you need it, who you share it with, and their rights. Most practices display this in the waiting room and on their website. You may need separate notices for patients and staff. The BMA has a template specifically for GP practices.",
             exemptions: [],
-            changeFromV7:
-              "Updated evidence item and tooltip for cat 2,3,4",
+            changeFromV7: "Updated evidence item and tooltip for cat 2,3,4",
           },
           {
             ref: "1.1.5",
@@ -302,7 +299,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "If your organisation destroys any records or equipment that hold personal data, how does it make sure that this is done securely?",
             tooltip:
-              "It is important that when there is no longer a valid reason to keep personal data that it is disposed of securely. This applies to paper documents, electronic records and equipment, such as old computers and laptops, mobile phones, CDs and memory sticks. If anyone in your organisation destroys any records or equipment themselves, such as shredding documents, briefly describe how the organisation makes sure that this is done securely. If you do not destroy records or equipment yourselves, or only use a third party to do so, write \"Not applicable\" in the text box.",
+              'It is important that when there is no longer a valid reason to keep personal data that it is disposed of securely. This applies to paper documents, electronic records and equipment, such as old computers and laptops, mobile phones, CDs and memory sticks. If anyone in your organisation destroys any records or equipment themselves, such as shredding documents, briefly describe how the organisation makes sure that this is done securely. If you do not destroy records or equipment yourselves, or only use a third party to do so, write "Not applicable" in the text box.',
             mandatory: false,
             approachingMandatory: true,
             plainEnglishQuestion:
@@ -351,8 +348,7 @@ export const dsptV8Standards: Standard[] = [
       },
       {
         ref: "2.2",
-        title:
-          "Staff contracts set out responsibilities for data security",
+        title: "Staff contracts set out responsibilities for data security",
         evidenceItems: [
           {
             ref: "2.2.1",
@@ -528,8 +524,7 @@ export const dsptV8Standards: Standard[] = [
             clinicHelp:
               "MFA means requiring a second form of verification (like a code on your phone) in addition to a password. This should be turned on for all systems accessible outside the practice — NHSmail, clinical systems accessed remotely, VPNs, cloud services, etc. If a system doesn't support MFA, document this as an approved exception.",
             exemptions: [],
-            changeFromV7:
-              "Updated evidence item and tooltip for cat 2",
+            changeFromV7: "Updated evidence item and tooltip for cat 2",
           },
         ],
       },
@@ -555,7 +550,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "If your organisation has had a data breach or a near miss in the last year, has the organisation reviewed the process that may have allowed the breach to occur?",
             tooltip:
-              "Confirm that your organisation has reviewed any processes that have caused a breach or a near miss, or which force people to use unauthorised workarounds that could compromise your organisation's data and cyber security. Workarounds could be things such as using unauthorised devices such as home computers or personal memory sticks or forwarding emails to personal email addresses. It is good practice to review processes annually even if a breach or near miss has not taken place. If no breaches or near misses in the last 12 months then please tick and write \"Not applicable\" in the comments box.",
+              'Confirm that your organisation has reviewed any processes that have caused a breach or a near miss, or which force people to use unauthorised workarounds that could compromise your organisation\'s data and cyber security. Workarounds could be things such as using unauthorised devices such as home computers or personal memory sticks or forwarding emails to personal email addresses. It is good practice to review processes annually even if a breach or near miss has not taken place. If no breaches or near misses in the last 12 months then please tick and write "Not applicable" in the comments box.',
             mandatory: true,
             approachingMandatory: false,
             plainEnglishQuestion:
@@ -628,7 +623,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "If your organisation has had a data breach, were the management team notified, and did they approve the actions planned to minimise the risk of a recurrence?",
             tooltip:
-              "In the event of a data breach the management team of your organisation, or nominated person, should be notified of the breach and any associated action plans or lessons learnt. If no breaches have occurred in the last 12 months then please tick and write \"Not applicable\" in the comments box.",
+              'In the event of a data breach the management team of your organisation, or nominated person, should be notified of the breach and any associated action plans or lessons learnt. If no breaches have occurred in the last 12 months then please tick and write "Not applicable" in the comments box.',
             mandatory: false,
             approachingMandatory: true,
             plainEnglishQuestion:
@@ -667,7 +662,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "Do all the computers and other devices used across your organisation have antivirus/antimalware software which is kept up to date?",
             tooltip:
-              "This applies to all servers, desktop computers, laptop computers, and tablets. Note that antivirus software and antimalware software are the same thing - they both perform the same functions. You may need to ask your IT supplier to assist with answering this question. If your organisation does not use any computers or other devices, then tick and write \"Not applicable\" in the comments box. Further information is available from Digital Care Hub (https://www.digitalcarehub.co.uk/data-security-protecting-my-information/cyber-security/have-up-to-date-antivirus-software/).",
+              'This applies to all servers, desktop computers, laptop computers, and tablets. Note that antivirus software and antimalware software are the same thing - they both perform the same functions. You may need to ask your IT supplier to assist with answering this question. If your organisation does not use any computers or other devices, then tick and write "Not applicable" in the comments box. Further information is available from Digital Care Hub (https://www.digitalcarehub.co.uk/data-security-protecting-my-information/cyber-security/have-up-to-date-antivirus-software/).',
             mandatory: true,
             approachingMandatory: true,
             plainEnglishQuestion:
@@ -844,7 +839,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "Are all the IT systems and the software used in your organisation still supported by the manufacturer or the risks are understood and managed?",
             tooltip:
-              "Systems and software that are no longer supported by the manufacturer can be unsafe as they are no longer being updated to protect against viruses for example. You may need to ask your IT supplier to assist with answering this question. Examples of unsupported software include: Windows XP, Windows Vista, Windows 7, Windows 8.1, Java or Windows Server 2008. Windows 11 is supported and is the most up to date version of Windows. This question also applies to software systems such as rostering, care planning or electronic medicine administration record (MAR) charts for example. If your organisation does not use any IT systems or software, then tick and write \"Not applicable\" in the comments box. For guidance (including information on how to check which software versions you have), see Digital Care Hub (https://www.digitalcarehub.co.uk/data-security-protecting-my-information/cyber-security/install-the-latest-software-updates/).",
+              'Systems and software that are no longer supported by the manufacturer can be unsafe as they are no longer being updated to protect against viruses for example. You may need to ask your IT supplier to assist with answering this question. Examples of unsupported software include: Windows XP, Windows Vista, Windows 7, Windows 8.1, Java or Windows Server 2008. Windows 11 is supported and is the most up to date version of Windows. This question also applies to software systems such as rostering, care planning or electronic medicine administration record (MAR) charts for example. If your organisation does not use any IT systems or software, then tick and write "Not applicable" in the comments box. For guidance (including information on how to check which software versions you have), see Digital Care Hub (https://www.digitalcarehub.co.uk/data-security-protecting-my-information/cyber-security/install-the-latest-software-updates/).',
             mandatory: false,
             approachingMandatory: false,
             plainEnglishQuestion:
@@ -867,7 +862,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "If your answer to 8.1.4 (on IT systems and software being supported by the manufacturer) was that software risks are being managed, please provide a document that summarises the risk of continuing to use each unsupported item, the reasons for doing so and a summary of the action your organisation is taking to minimise the risk.",
             tooltip:
-              "This is a conscious decision to accept and manage the associated risks of unsupported systems. This document should indicate that your board or management team have formally considered the risks of continuing to use unsupported items and have concluded that the risks are acceptable. If your answer to the previous question was yes, write \"Not applicable\" in \"Enter text describing document location\".",
+              'This is a conscious decision to accept and manage the associated risks of unsupported systems. This document should indicate that your board or management team have formally considered the risks of continuing to use unsupported items and have concluded that the risks are acceptable. If your answer to the previous question was yes, write "Not applicable" in "Enter text describing document location".',
             mandatory: false,
             approachingMandatory: false,
             plainEnglishQuestion:
@@ -962,7 +957,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "Does your organisation make sure that the passwords of all networking components, such as a Wi-Fi router, have been changed from their original passwords?",
             tooltip:
-              "Networking components include routers, switches, hubs and firewalls at all of your organisation's locations. Your organisation may just have a Wi-Fi router. This does not apply to Wi-Fi routers for people working from home. You may need to ask your IT supplier to assist with answering this question. If your organisation does not have a network or internet access, then tick and write \"Not applicable\" in the comments box.",
+              'Networking components include routers, switches, hubs and firewalls at all of your organisation\'s locations. Your organisation may just have a Wi-Fi router. This does not apply to Wi-Fi routers for people working from home. You may need to ask your IT supplier to assist with answering this question. If your organisation does not have a network or internet access, then tick and write "Not applicable" in the comments box.',
             mandatory: true,
             approachingMandatory: false,
             plainEnglishQuestion:
@@ -976,8 +971,7 @@ export const dsptV8Standards: Standard[] = [
       },
       {
         ref: "9.2",
-        title:
-          "A penetration test has been scoped and undertaken",
+        title: "A penetration test has been scoped and undertaken",
         evidenceItems: [
           {
             ref: "9.2.1",
@@ -1008,7 +1002,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "Are all laptops and tablets or removable devices that hold or allow access to personal data, encrypted?",
             tooltip:
-              "Mobile computers like laptops and tablets and removable devices like memory sticks/cards/CDs are vulnerable as they can be lost or stolen. To make these devices especially difficult to get into, they can be encrypted (this protects information by converting it into unreadable code that cannot be deciphered easily by unauthorised people). Devices can be further protected, for example, by preventing the use of removable devices like memory sticks. This is called computer port control. You may need to ask your IT supplier to assist with answering this question. If your organisation does not use any mobile devices, or equivalent security arrangements are in place, then tick and write \"Not applicable\" in the comments box.",
+              'Mobile computers like laptops and tablets and removable devices like memory sticks/cards/CDs are vulnerable as they can be lost or stolen. To make these devices especially difficult to get into, they can be encrypted (this protects information by converting it into unreadable code that cannot be deciphered easily by unauthorised people). Devices can be further protected, for example, by preventing the use of removable devices like memory sticks. This is called computer port control. You may need to ask your IT supplier to assist with answering this question. If your organisation does not use any mobile devices, or equivalent security arrangements are in place, then tick and write "Not applicable" in the comments box.',
             mandatory: true,
             approachingMandatory: false,
             plainEnglishQuestion:
@@ -1065,7 +1059,7 @@ export const dsptV8Standards: Standard[] = [
             evidenceText:
               "Do your organisation's IT system suppliers have cyber security certification?",
             tooltip:
-              "Your organisation should ensure that any supplier of IT systems has cyber security certification. For example, external certification such as Cyber Essentials, or ISO27001, or by being listed on Digital marketplace, or by completing this Toolkit. An IT systems supplier would include suppliers of systems such as rostering, care planning or electronic medicine administration record (MAR) charts for example. If your organisation does not use any IT systems, then tick and write \"Not applicable\" in the comments box.",
+              'Your organisation should ensure that any supplier of IT systems has cyber security certification. For example, external certification such as Cyber Essentials, or ISO27001, or by being listed on Digital marketplace, or by completing this Toolkit. An IT systems supplier would include suppliers of systems such as rostering, care planning or electronic medicine administration record (MAR) charts for example. If your organisation does not use any IT systems, then tick and write "Not applicable" in the comments box.',
             mandatory: true,
             approachingMandatory: false,
             plainEnglishQuestion:
@@ -1112,36 +1106,66 @@ export const APPROACHING_STANDARDS_ITEMS = 22;
 
 /** Quick lookup: all evidence refs that are mandatory */
 export const MANDATORY_REFS = new Set([
-  "1.1.1", "1.1.2", "1.1.3", "1.1.5", "1.2.4",
-  "1.3.1", "1.3.2", "1.3.13", "1.4.1",
-  "2.1.1", "2.2.1",
+  "1.1.1",
+  "1.1.2",
+  "1.1.3",
+  "1.1.5",
+  "1.2.4",
+  "1.3.1",
+  "1.3.2",
+  "1.3.13",
+  "1.4.1",
+  "2.1.1",
+  "2.2.1",
   "3.2.1",
-  "4.1.1", "4.2.4", "4.3.1", "4.5.3",
+  "4.1.1",
+  "4.2.4",
+  "4.3.1",
+  "4.5.3",
   "5.1.1",
-  "6.1.1", "6.1.3", "6.2.1",
-  "7.1.1", "7.1.2", "7.3.2", "7.3.4",
+  "6.1.1",
+  "6.1.3",
+  "6.2.1",
+  "7.1.1",
+  "7.1.2",
+  "7.3.2",
+  "7.3.4",
   "8.3.1",
-  "9.1.1", "9.5.2",
-  "10.1.2", "10.2.1",
+  "9.1.1",
+  "9.5.2",
+  "10.1.2",
+  "10.2.1",
 ]);
 
 /** Quick lookup: all evidence refs required for "Approaching Standards" */
 export const APPROACHING_REFS = new Set([
-  "1.1.1", "1.1.2", "1.1.3", "1.1.5",
-  "1.3.1", "1.3.8", "1.3.13", "1.4.1", "1.4.3",
-  "2.1.1", "2.2.1",
-  "4.1.1", "4.2.4",
-  "6.1.1", "6.1.2", "6.1.3", "6.2.1",
+  "1.1.1",
+  "1.1.2",
+  "1.1.3",
+  "1.1.5",
+  "1.3.1",
+  "1.3.8",
+  "1.3.13",
+  "1.4.1",
+  "1.4.3",
+  "2.1.1",
+  "2.2.1",
+  "4.1.1",
+  "4.2.4",
+  "6.1.1",
+  "6.1.2",
+  "6.1.3",
+  "6.2.1",
   "7.3.2",
 ]);
 
 /** Items new or newly applicable in DSPT v8 for GP practices */
 export const NEW_IN_V8_REFS = new Set([
-  "7.1.1",  // New evidence item for cat 4
-  "7.1.5",  // New evidence item for cat 2,3,4
-  "7.1.6",  // New evidence item for cat 3 and 4
-  "8.1.4",  // Now applicable for cat 4
-  "8.2.1",  // Now applies for cat 4
-  "8.3.8",  // Now applies for cat 3 and 4
-  "8.4.3",  // New evidence item for cat 4
+  "7.1.1", // New evidence item for cat 4
+  "7.1.5", // New evidence item for cat 2,3,4
+  "7.1.6", // New evidence item for cat 3 and 4
+  "8.1.4", // Now applicable for cat 4
+  "8.2.1", // Now applies for cat 4
+  "8.3.8", // Now applies for cat 3 and 4
+  "8.4.3", // New evidence item for cat 4
 ]);

@@ -23,7 +23,10 @@ http.route({
         break;
 
       case "user.deleted": {
-        const clerkUserId = event.data.id!;
+        const clerkUserId = event.data.id;
+        if (!clerkUserId) {
+          return new Response("Missing Clerk user id", { status: 400 });
+        }
         await ctx.runMutation(internal.users.deleteFromClerk, { clerkUserId });
         break;
       }
@@ -36,13 +39,22 @@ http.route({
 });
 
 async function validateRequest(req: Request): Promise<WebhookEvent | null> {
+  const svixId = req.headers.get("svix-id");
+  const svixTimestamp = req.headers.get("svix-timestamp");
+  const svixSignature = req.headers.get("svix-signature");
+  const webhookSecret = process.env.CLERK_WEBHOOK_SECRET;
+
+  if (!svixId || !svixTimestamp || !svixSignature || !webhookSecret) {
+    return null;
+  }
+
   const payloadString = await req.text();
   const svixHeaders = {
-    "svix-id": req.headers.get("svix-id")!,
-    "svix-timestamp": req.headers.get("svix-timestamp")!,
-    "svix-signature": req.headers.get("svix-signature")!,
+    "svix-id": svixId,
+    "svix-timestamp": svixTimestamp,
+    "svix-signature": svixSignature,
   };
-  const wh = new Webhook(process.env.CLERK_WEBHOOK_SECRET!);
+  const wh = new Webhook(webhookSecret);
   try {
     return wh.verify(payloadString, svixHeaders) as unknown as WebhookEvent;
   } catch (error) {

@@ -120,9 +120,9 @@ It does NOT submit to the DSPT portal — that's NHS England's system. ClinicShi
 
 - [x] Convex schema: organisations, users, assessments, questions, answers, evidenceFiles, standards, assertions
 - [x] Auth: Clerk (email/password + magic link + SSO-ready)
-- [ ] Onboarding wizard (org type selection, practice details)
+- [x] Onboarding wizard (org type selection, practice details)
 - [x] Seed script: load all 10 standards, assertions, questions into Convex
-- [ ] Basic layout/navigation shell (Tailwind + shadcn/ui)
+- [x] Basic layout/navigation shell (Tailwind + shadcn/ui)
 
 ### Week 3 (24 Feb - 2 Mar): Questionnaire Engine
 

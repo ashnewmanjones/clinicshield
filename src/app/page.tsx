@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import {
   Shield,
   Clock,
@@ -44,7 +45,19 @@ function Nav() {
           <a href="#faq" className="hover:text-foreground transition">FAQ</a>
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <a href="#pricing" className="inline-flex items-center justify-center h-10 px-5 rounded-lg bg-[oklch(0.488_0.243_264.376)] text-white font-medium text-sm hover:opacity-90 transition">
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="inline-flex items-center justify-center h-10 px-5 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary/50 transition">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <a href="/dashboard" className="inline-flex items-center justify-center h-10 px-5 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary/50 transition">
+              Dashboard
+            </a>
+          </SignedIn>
+          <a href="/onboarding" className="inline-flex items-center justify-center h-10 px-5 rounded-lg bg-[oklch(0.488_0.243_264.376)] text-white font-medium text-sm hover:opacity-90 transition">
             Get Started Free
           </a>
         </div>
@@ -64,7 +77,15 @@ function Nav() {
           <a href="#features" className="block py-1" onClick={() => setOpen(false)}>Features</a>
           <a href="#pricing" className="block py-1" onClick={() => setOpen(false)}>Pricing</a>
           <a href="#faq" className="block py-1" onClick={() => setOpen(false)}>FAQ</a>
-          <a href="#pricing" className="block mt-2 text-center py-2.5 rounded-lg bg-[oklch(0.488_0.243_264.376)] text-white font-medium">Get Started Free</a>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="block w-full mt-2 text-center py-2.5 rounded-lg border border-border text-foreground font-medium hover:bg-secondary/50 transition">Sign In</button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <a href="/dashboard" className="block mt-2 text-center py-2.5 rounded-lg border border-border text-foreground font-medium hover:bg-secondary/50 transition">Dashboard</a>
+          </SignedIn>
+          <a href="/onboarding" className="block mt-2 text-center py-2.5 rounded-lg bg-[oklch(0.488_0.243_264.376)] text-white font-medium">Get Started Free</a>
         </div>
       )}
     </nav>
@@ -97,7 +118,7 @@ function Hero() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#pricing"
+            href="/onboarding"
             className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-[oklch(0.488_0.243_264.376)] text-white font-semibold text-base hover:opacity-90 transition shadow-lg shadow-[oklch(0.488_0.243_264.376)]/20"
           >
             Start Free Assessment
@@ -422,7 +443,7 @@ function Pricing() {
               </div>
               <p className={`mt-3 text-sm ${t.featured ? "text-white/80" : "text-muted-foreground"}`}>{t.desc}</p>
               <a
-                href="#"
+                href="/onboarding"
                 className={`mt-6 block w-full text-center py-3 rounded-xl font-semibold text-sm transition ${
                   t.featured
                     ? "bg-white text-[oklch(0.488_0.243_264.376)] hover:bg-white/90"
@@ -594,7 +615,7 @@ function FooterCTA() {
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#"
+            href="/onboarding"
             className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-white text-[oklch(0.488_0.243_264.376)] font-semibold text-base hover:bg-white/90 transition shadow-lg"
           >
             Start Free Assessment

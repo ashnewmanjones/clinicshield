@@ -3,8 +3,9 @@
 import { SignOutButton } from "@clerk/nextjs";
 import { useQuery } from "convex/react";
 import { Shield } from "lucide-react";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -17,6 +18,9 @@ import { api } from "../../../convex/_generated/api";
 export default function DashboardPage() {
   const org = useQuery(api.organisations.getCurrent);
   const user = useQuery(api.users.current);
+  const questionnaire = useQuery(api.questionnaire.getState, {
+    standardNumber: BigInt(1),
+  });
 
   return (
     <div className="min-h-screen bg-background p-6">
@@ -41,15 +45,21 @@ export default function DashboardPage() {
           <CardHeader>
             <CardTitle>DSPT Assessment 2025–26</CardTitle>
             <CardDescription>
-              Deadline: 30 June 2026 · 0% complete
+              Deadline: 30 June 2026 · {questionnaire?.completionPercent ?? 0}%{" "}
+              complete
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Your assessment has been created. The guided questionnaire is
-              coming soon — you'll work through each of the 10 NDG Data Security
-              Standards step by step.
+              Work through each NDG Data Security Standard and your answers save
+              automatically as you type.
             </p>
+            <Link
+              href="/dashboard/questionnaire?standard=1"
+              className={buttonVariants()}
+            >
+              Continue questionnaire
+            </Link>
           </CardContent>
         </Card>
       </div>

@@ -2,7 +2,7 @@
 
 ## Automated NHS DSPT Self-Assessment for Small Healthcare Providers
 
-**Created: 9 February 2026 | Target: First paying customer by 6 April 2026**
+**Created: 9 February 2026 | Last updated: 17 February 2026 | Target: First paying customer by 6 April 2026**
 
 ---
 
@@ -110,7 +110,7 @@ It does NOT submit to the DSPT portal — that's NHS England's system. ClinicShi
 - [x] Download DSPT v8 GP practice spreadsheet from NHS Digital
 - [x] Map every assertion and mandatory evidence item for GP org type
 - [x] Create question bank: translate each evidence item into plain-English questions
-- [x] Set up Next.js 14+ project with App Router + TypeScript
+- [x] Set up Next.js 16+ project with App Router + TypeScript
 - [x] Set up Convex: schema design, connect to Next.js
 - [x] Domain: clinicshield.co.uk (£5-10/year)
 - [x] Deploy to Vercel (connected to GitHub repo)
@@ -184,22 +184,38 @@ It does NOT submit to the DSPT portal — that's NHS England's system. ClinicShi
 
 ## 4. Tech Stack
 
-### Recommended: Next.js + Convex
+### Recommended: Next.js + Convex + Clerk (Current Repo Stack)
 
-Fully serverless, real-time by default, zero infrastructure management. Convex handles database, file storage, auth, and background jobs in one platform — massively reduces boilerplate.
+Fully serverless, real-time by default, zero infrastructure management. Convex handles database, file storage, and backend functions while Clerk handles authentication.
 
 | Layer | Choice | Why |
 |-------|--------|-----|
-| **Framework** | Next.js 14+ (App Router) | Already used for ashnewmanjones.com. TypeScript everywhere, Vercel deploys |
-| **Backend/Database** | Convex | Real-time reactive database, server functions, file storage, scheduled jobs — all in one. No SQL, no migrations, no ORM |
-| **Auth** | Clerk | SSO-ready from day one (valuable for NHS orgs/MSPs), clean DX, free up to 1M MAUs |
+| **Framework** | Next.js 16 (App Router) + React 19 | TypeScript-first app framework with modern routing and server/client components |
+| **Backend/Database** | Convex 1.x | Real-time reactive database, server functions, file storage, scheduled jobs — all in one |
+| **Auth** | Clerk (`@clerk/nextjs` + `@clerk/backend`) | SSO-ready and already integrated in middleware/routes |
 | **Hosting** | Vercel | Free tier generous. Push to GitHub → live. Edge functions, serverless |
 | **File Storage** | Convex File Storage | Built-in, no separate S3/R2 needed. Evidence uploads handled natively |
-| **Email** | Resend | Free tier, excellent Next.js DX, triggered from Convex actions |
-| **Payments** | Stripe Checkout + webhooks | Webhook handler as a Convex HTTP action |
+| **Email** | Resend | Triggered from Convex actions |
+| **Payments** | Stripe (`stripe`, `@stripe/react-stripe-js`, `@stripe/stripe-js`) | Checkout + webhook handler via Convex HTTP actions |
 | **DNS/CDN** | Cloudflare | Free tier |
-| **PDF Generation** | `@react-pdf/renderer` (client-side) or Convex action + Puppeteer on serverless | For gap analysis reports |
+| **PDF Generation** | `@react-pdf/renderer` | For gap analysis reports |
+| **Validation** | `@t3-oss/env-nextjs` + `zod` | Typed runtime env and schema validation |
+| **Styling/UI** | Tailwind CSS v4 + shadcn + Base UI | Utility CSS + reusable primitives |
+| **Analytics** | `posthog-js` | Product analytics and funnel tracking |
 | **CI/CD** | Vercel (auto) + GitHub Actions if needed | Zero-config deploys |
+
+### Package Baseline (Current)
+
+Current `package.json` aligns to:
+
+- `next@16.1.6`, `react@19.2.3`, `react-dom@19.2.3`
+- `convex@1.31.7`
+- `@clerk/nextjs@6.37.5`, `@clerk/backend@2.31.1`
+- `stripe@20.3.1`, `@stripe/react-stripe-js@5.6.0`, `@stripe/stripe-js@8.7.0`
+- `@react-pdf/renderer@4.3.2`
+- `resend@6.9.2`
+- `posthog-js@1.350.0`
+- `tailwindcss@4.1.18`, `@biomejs/biome@2.2.0`, `typescript@5.9.3`
 
 ### Why Convex over traditional DB
 
@@ -494,32 +510,32 @@ Your landing page, terms of service, and in-app must clearly state:
 
 ### 30 Days (by ~9 March)
 
-- ✅ Core questionnaire engine built and functional
-- ✅ All 10 standards loaded with questions
-- ✅ Database schema and auth complete
-- ✅ 3+ practice managers lined up for beta
+- [ ] Core questionnaire engine built and functional
+- [x] All 10 standards loaded with questions
+- [x] Database schema and auth complete
+- [ ] 3+ practice managers lined up for beta
 - **Target:** Working prototype you can demo
 
 ### 60 Days (by ~9 April)
 
-- ✅ MVP launched with payments live
-- ✅ Landing page live with SEO content
-- ✅ 5-10 beta users completed assessments
-- ✅ **First 5 paying customers**
-- ✅ 50+ email signups from lead magnet
-- ✅ 3+ LinkedIn posts published
-- ✅ Active in Practice Index forum
+- [ ] MVP launched with payments live
+- [ ] Landing page live with SEO content
+- [ ] 5-10 beta users completed assessments
+- [ ] **First 5 paying customers**
+- [ ] 50+ email signups from lead magnet
+- [ ] 3+ LinkedIn posts published
+- [ ] Active in Practice Index forum
 - **Revenue target:** £150-250 (5x £29 early bird)
 
 ### 90 Days (by ~9 May)
 
-- ✅ **25-50 paying customers**
-- ✅ Net Promoter Score from beta users
-- ✅ 3+ testimonials on landing page
-- ✅ 2+ LMC partnership conversations
-- ✅ 500+ website visitors/month
-- ✅ 10%+ free-to-paid conversion rate
-- ✅ Content ranking for long-tail DSPT keywords
+- [ ] **25-50 paying customers**
+- [ ] Net Promoter Score from beta users
+- [ ] 3+ testimonials on landing page
+- [ ] 2+ LMC partnership conversations
+- [ ] 500+ website visitors/month
+- [ ] 10%+ free-to-paid conversion rate
+- [ ] Content ranking for long-tail DSPT keywords
 - **Revenue target:** £1,000-2,500 MRR equivalent
 
 ### June 2026 (deadline month)
@@ -582,14 +598,14 @@ Capturing just 1% of 60,000 target organisations = 600 customers = £30,000-60,0
 
 ## 12. Immediate Next Actions (This Week)
 
-1. **Download DSPT v8 GP spreadsheet** from <https://www.dsptoolkit.nhs.uk/StaticContent/Attachment/901>
-2. **Register domain:** clinicshield.co.uk
-3. **Set up Laravel project** with Inertia.js + React
-4. **Map all mandatory evidence items** for GP practice org type into a structured JSON/spreadsheet
-5. **Start writing plain-English question translations** for each evidence item
-6. **Create LinkedIn profile** focused on NHS data security / practice management
-7. **Join Practice Index forum** (practiceindex.co.uk)
-8. **Identify 3 GP practices** from your Imperial network for beta testing
+1. **Build Week 3 questionnaire route + UI shell** (one standard at a time, step-based navigation)
+2. **Implement answer input types** (yes/no, multiple choice, text, file upload, date)
+3. **Wire auto-save mutations in Convex** so answers persist on each change
+4. **Add reactive progress tracking** (per standard and overall completion)
+5. **Add contextual help blocks/tooltips** tied to assertions/evidence items
+6. **Enable multi-user sync validation** with two signed-in users on same assessment
+7. **Define first scoring query contract** for Week 4 traffic-light dashboard
+8. **Run validation baseline**: `pnpm lint`, `pnpm build`, and core flow smoke test
 
 ---
 
@@ -608,4 +624,4 @@ Capturing just 1% of 60,000 target organisations = 600 customers = £30,000-60,0
 
 ---
 
-*This plan was researched and written on 9 Feb 2026. DSPT v8 deadline: 30 June 2026. Time is your most valuable asset — ship fast, iterate based on real user feedback, and ride the deadline urgency wave.*
+*This plan was originally researched on 9 Feb 2026 and updated on 17 Feb 2026 to reflect the current repository stack and execution state. DSPT v8 deadline: 30 June 2026. Time is your most valuable asset — ship fast, iterate based on real user feedback, and ride the deadline urgency wave.*

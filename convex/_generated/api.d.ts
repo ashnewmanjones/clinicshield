@@ -10,6 +10,8 @@
 
 import type * as http from "../http.js";
 import type * as organisations from "../organisations.js";
+import type * as questionnaire from "../questionnaire.js";
+import type * as questionnaireHelpers from "../questionnaireHelpers.js";
 import type * as seed from "../seed.js";
 import type * as users from "../users.js";
 
@@ -22,6 +24,8 @@ import type {
 declare const fullApi: ApiFromModules<{
   http: typeof http;
   organisations: typeof organisations;
+  questionnaire: typeof questionnaire;
+  questionnaireHelpers: typeof questionnaireHelpers;
   seed: typeof seed;
   users: typeof users;
 }>;

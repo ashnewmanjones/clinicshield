@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ClinicShield
 
-## Getting Started
+ClinicShield is a Next.js + Convex app for NHS DSPT readiness workflows for small healthcare providers.
 
-First, run the development server:
+Current stack:
+
+- Next.js 16 + React 19
+- Convex (database, backend functions, file storage)
+- Clerk (authentication)
+- Tailwind CSS v4 + shadcn/ui
+- Stripe, Resend, PostHog integrations
+
+## Prerequisites
+
+- Node.js `24` (from `.nvmrc`)
+- `pnpm` (project is pinned to `pnpm@10.29.2`)
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local` with the required variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Server
+CONVEX_DEPLOYMENT=
+RESEND_KEY=
+STRIPE_SECRET_KEY=
+CLERK_SECRET_KEY=
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Client
+NEXT_PUBLIC_CONVEX_URL=
+NEXT_PUBLIC_CONVEX_SITE_URL=
+NEXT_PUBLIC_POSTHOG_KEY=
+NEXT_PUBLIC_POSTHOG_HOST=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 
-## Learn More
+# Convex HTTP webhook verification (used in convex/http.ts)
+CLERK_WEBHOOK_SECRET=
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`pnpm dev` runs both:
 
-## Deploy on Vercel
+- `next dev`
+- `convex dev`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+App route: [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Seed DSPT Data
+
+Seed reference standards/assertions/evidence items once:
+
+```bash
+pnpx convex run seed:seedDsptData
+```
+
+The seed is idempotent and safe to re-run.
+
+## Scripts
+
+- `pnpm dev`: run Next.js + Convex in development
+- `pnpm build`: production build
+- `pnpm start`: serve production build
+- `pnpm lint`: Biome checks
+- `pnpm format`: Biome format writes
+
+## Current App Surface
+
+- `/`: marketing landing page
+- `/onboarding`: organisation setup wizard
+- `/dashboard`: authenticated assessment shell
+
+## Validation Baseline
+
+Before opening a PR:
+
+```bash
+pnpm lint
+pnpm build
+```
+
+Then smoke test core flows:
+
+- Landing page
+- Sign-in/sign-up
+- Onboarding
+- Dashboard
